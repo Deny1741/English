@@ -5,37 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Пример</title>
+    <title>Занятие №2</title>
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/word-list.css">
 </head>
 
-<style>
-    .wrap {
-        display: flex;
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
-        font-family: Helvetica, serif;
-        padding: 0 auto;
-        line-height: 1.5;
-        font-size: 16px;
-    }
-
-    .words {
-        display: flex;
-        margin: 0 auto;
-        border: 1px solid black;
-    }
-
-    .words li {
-        border: 1px solid black;
-        padding: 2px;
-    }
-
-
-
-</style>
 
 <body>
 
@@ -52,9 +27,14 @@
         <li class="nav-item not-ready"><a class="nav-link" >День 5</a></li>
         <li class="nav-item not-ready"><a class="nav-link" >День 6</a></li>
         <li class="nav-item not-ready"><a class="nav-link" >День 7</a></li>
+        <li>
+            <img id="sound-off" height="30" src="../images/sound-off.png" alt="">
+            <img id="sound-on" style="display: none" height="30" src="../images/sound-on.png" alt="">
+        </li>
     </ul>
 
 </nav>
+
 <h1>Занятие №2</h1>
 
 <div class="wrap">
@@ -70,23 +50,8 @@
 </body>
 <script type="module">
     import { wordsRus2, wordsEng2 } from "../js/words/words-2.js";
+    import { createList } from "../js/list.js";
 
-    for (let i = 0; i < wordsRus2.length; i++) {
-        document.getElementById('rus').innerHTML += '<li>' + wordsRus2[i] + '</li>';
-        document.getElementById('eng').innerHTML += '<li id="item">' + wordsEng2[i] + '</li>';
-        document.getElementById('item').id = i.toString();
-    }
-
-    const voice = (text) => {
-        let speech = new SpeechSynthesisUtterance(text);
-        speech.lang = 'en-En';
-        window.speechSynthesis.speak(speech);
-    };
-
-    document.getElementById('eng').onclick = (e) => {
-        console.log(document.getElementById(e.target.id).innerText);
-        //  window.speechSynthesis.speak(document.getElementById(e.target.id).innerText);
-        voice(document.getElementById(e.target.id).innerText);
-    };
+    createList(wordsRus2, wordsEng2);
 </script>
 </html>

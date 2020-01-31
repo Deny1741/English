@@ -1,0 +1,25 @@
+.wrap {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Helvetica, serif;
+    padding: 0 auto;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.words {
+    display: flex;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+.words li {
+    border: 1px solid black;
+    padding: 2px;
+}
+
+.nav image {
+    margin: 0 auto;
+}
