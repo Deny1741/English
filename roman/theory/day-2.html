@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Пример</title>
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<style>
+    .wrap {
+        display: flex;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        font-family: Helvetica, serif;
+        padding: 0 auto;
+        line-height: 1.5;
+        font-size: 16px;
+    }
+
+    .words {
+        display: flex;
+        margin: 0 auto;
+        border: 1px solid black;
+    }
+
+    .words li {
+        border: 1px solid black;
+        padding: 2px;
+    }
+
+
+
+</style>
+
+<body>
+
+<nav>
+    <ul class="nav">
+        <li class="nav-item width100"><a href="../practice.html" class="nav-link" >Практика</a></li>
+    </ul>
+
+    <ul class="nav">
+        <li class="nav-item"><a href="day-1.html" class="nav-link" >День 1</a></li>
+        <li class="nav-item active"><a href="day-2.html" class="nav-link">День 2</a></li>
+        <li class="nav-item not-ready"><a class="nav-link" >День 3</a></li>
+        <li class="nav-item not-ready"><a class="nav-link" >День 4</a></li>
+        <li class="nav-item not-ready"><a class="nav-link" >День 5</a></li>
+        <li class="nav-item not-ready"><a class="nav-link" >День 6</a></li>
+        <li class="nav-item not-ready"><a class="nav-link" >День 7</a></li>
+    </ul>
+
+</nav>
+<h1>Занятие №2</h1>
+
+<div class="wrap">
+    <div class="words">
+        <ul id="rus">
+        </ul>
+        <ul id="eng">
+        </ul>
+    </div>
+</div>
+
+
+</body>
+<script type="module">
+    import { wordsRus2, wordsEng2 } from "../js/words/words-2.js";
+
+    for (let i = 0; i < wordsRus2.length; i++) {
+        document.getElementById('rus').innerHTML += '<li>' + wordsRus2[i] + '</li>';
+        document.getElementById('eng').innerHTML += '<li id="item">' + wordsEng2[i] + '</li>';
+        document.getElementById('item').id = i.toString();
+    }
+
+    const voice = (text) => {
+        let speech = new SpeechSynthesisUtterance(text);
+        speech.lang = 'en-En';
+        window.speechSynthesis.speak(speech);
+    };
+
+    document.getElementById('eng').onclick = (e) => {
+        console.log(document.getElementById(e.target.id).innerText);
+        //  window.speechSynthesis.speak(document.getElementById(e.target.id).innerText);
+        voice(document.getElementById(e.target.id).innerText);
+    };
+</script>
+</html>

@@ -1,0 +1,26 @@
+:root {
+    --nav-link-color: #008CBA;
+    --nav-link-color-hover: #ff3366;
+    --nav-link-text-color: #fff;
+    --btn-color-green: #4CAF50;
+    --btn-color-blue: #008CBA;
+    --form-background: #323a45;
+    --btn-form-color: #ff3366;
+}
+body {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+
+
