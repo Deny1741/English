@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="ru">
 <head>
@@ -10,7 +8,11 @@
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/checkbox.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+
     <title>Практика</title>
 </head>
 
@@ -148,7 +150,6 @@
 
 </ul>
 
-
 <div class="practice-wrap">
     <div id="rightCounter"></div>
     <div id="word" class=""></div>
@@ -161,7 +162,7 @@
 </body>
 
 <script type="module">
-    import { wordsRus1, wordsEng1 } from "./js/words/words-1.js";
+    import { wordsRus1, wordsEng1 } from "./js/words-1.js";
     import { wordsRus2, wordsEng2 } from "./js/words/words-2.js";
 
     let wordsRus = [];
@@ -171,94 +172,97 @@
     let counter = '';
 
     window.onload = () => {
-        document.getElementById('word').innerText = "Нажмите 'Загадать'";
-        document.getElementById('day1').checked = true;
+        $('#word').text("Нажмите 'Загадать'");
+        $('#day1').prop('checked', true);
+
         wordsRus = [...wordsRus, ...wordsRus1];
         wordsEng = [...wordsEng, ...wordsEng1];
-        document.getElementById('rightCounter').innerText = "Осталось: " + wordsRus.length;
+
+        $('#rightCounter').text("Осталось: " + wordsRus.length);
     };
 
     const start = () => {
-        document.getElementById('input').value = "";
+        $('#input').val("").focus();
 
         wordIndex = Math.floor(Math.random()*wordsRus.length);
-        document.getElementById('word').innerText = wordsRus[wordIndex];
-        document.getElementById('input').focus();
-    //    console.log(wordIndex);
+
+        $('#word').text(wordsRus[wordIndex]);
+
         console.log(wordsEng[wordIndex]);
     };
 
     const check = () => {
-        if (document.getElementById('input').value.toLowerCase() == wordsEng[wordIndex]) {
-            document.getElementById('word').innerText = "ВЕРНО!";
-            document.getElementById('input').value = "";
+        let $input = $('#input');
+
+        if ($input.val().toLowerCase() === wordsEng[wordIndex]) {
+            $('#word').text("ВЕРНО!");
+            $input.val("");
             counter++;
 
-            document.getElementById('input').blur();
+            $input.blur();
 
             wordsRus.splice(wordIndex, 1);
             wordsEng.splice(wordIndex, 1);
 
-            document.getElementById('rightCounter').innerText = "Осталось: " + wordsRus.length;
+            $('#rightCounter').text("Осталось: " + wordsRus.length);
             console.log(wordsRus.length);
             if (wordsRus.length !== 0) setTimeout(start, 1000);
         }
 
         if (wordsRus.length === 0) {
-            document.getElementById('word').innerText = 'ПОЗДРАВЛЯЕМ!!';
-            document.getElementById('input').disabled = true;
-            document.getElementById('answer').disabled = true;
-            document.getElementById('start').disabled = true;
+            $('#word').text('ПОЗДРАВЛЯЕМ!!');
+            $input.prop('disabled', true);
+            $('#answer').prop('disabled', true);
+            $('#start').prop('disabled', true);
 
-            document.getElementById('day1').checked = false;
-            document.getElementById('day2').checked = false;
+            $('#day1').prop('checked', false);
+            $('#day2').prop('checked', false);
         }
     };
 
-    document.getElementById('start').onclick = () => start();
-    document.getElementById('input').onchange = () => check();
-    document.getElementById('answer').onclick= () => check();
+    $('#start').click(() => start());
+    $('#input').change(() => check());
+    $('#answer').click(() => check());
 
 
     const useWords = (e) => {
-        if (document.getElementById(e.target.id).checked === true) {
-            if (e.target.id === 'day1') {
-                wordsRus = [...wordsRus, ...wordsRus1];
-                wordsEng = [...wordsEng, ...wordsEng1];
-            }
-            if (e.target.id === 'day2') {
-                wordsRus = [...wordsRus, ...wordsRus2];
-                wordsEng = [...wordsEng, ...wordsEng2];
+        let arrDays = ['day1', 'day2'];
+        let arrWordsRus = [wordsRus1, wordsRus2];
+        let arrWordsEng = [wordsEng1, wordsEng2];
+
+    //    console.log($(`#${arrDays[0]}`).prop('checked'));
+    //  if (document.getElementById(e.target.id).checked === true) {
+        if ($(`#${e.target.id}`).prop('checked') === true) {
+            for (let i = 0; i < arrDays.length; i++) {
+                if (e.target.id === arrDays[i]) {
+                    wordsRus = [...wordsRus, ...arrWordsRus[i]];
+                    wordsEng = [...wordsEng, ...arrWordsEng[i]];
+                }
             }
         }
 
         if (document.getElementById(e.target.id).checked === false) {
-                if (e.target.id === 'day1') {
-                    for (let i = 0; i < wordsRus1.length; i++) {
-                        wordsRus = wordsRus.filter(item => item !== wordsRus1[i]);
-                        wordsEng = wordsEng.filter(item => item !== wordsEng1[i]);
+            for (let i = 0; i < arrDays.length; i++) {
+                if (e.target.id === arrDays[i]) {
+                    for (let j = 0; j < arrWordsRus[i].length; j++) {
+                        wordsRus = wordsRus.filter(item => item !== arrWordsRus[i][j]);
+                        wordsEng = wordsEng.filter(item => item !== arrWordsEng[i][j]);
                     }
                 }
-
-                if (e.target.id === 'day2') {
-                    for (let i = 0; i < wordsRus2.length; i++) {
-                        wordsRus = wordsRus.filter(item => item !== wordsRus2[i]);
-                        wordsEng = wordsEng.filter(item => item !== wordsEng2[i]);
-                    }
-                }
+            }
 
         }
-        console.log(wordsEng);
 
+     //   console.log(wordsEng);
 
-        document.getElementById('rightCounter').innerText = "Осталось: " + wordsRus.length;
-        document.getElementById('input').disabled = false;
-        document.getElementById('answer').disabled = false;
-        document.getElementById('start').disabled = false;
+        $('#rightCounter').text("Осталось: " + wordsRus.length);
+        $('#input').prop('disabled', false);
+        $('#answer').prop('disabled', false);
+        $('#start').prop('disabled', false);
     };
 
-    document.getElementById('day1').onclick = (e) => useWords(e);
-    document.getElementById('day2').onclick = (e) => useWords(e);
+    $('#day1').click((e) => useWords(e));
+    $('#day2').click((e) => useWords(e));
 
 </script>
 </html>

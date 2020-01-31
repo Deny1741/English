@@ -1,22 +1,24 @@
+export let soundOff = 'sound-off';
+export let soundOn = 'sound-on';
+
 export const voice = (text) => {
     let speech = new SpeechSynthesisUtterance(text);
     speech.lang = 'en-En';
     window.speechSynthesis.speak(speech);
 };
 
-document.getElementById('eng').onclick = (e) => {
+$('#eng').click((e) => {
     console.log(document.getElementById(e.target.id).innerText);
-    //  window.speechSynthesis.speak(document.getElementById(e.target.id).innerText);
-    if (document.getElementById('sound-on').style.display === 'block') {
+    if (document.getElementById(soundOn).style.display === 'block') {
         voice(document.getElementById(e.target.id).innerText);
     }
-};
+});
 
-document.getElementById('sound-off').onclick = () => {
-    document.getElementById('sound-off').style.display = 'none';
-    document.getElementById('sound-on').style.display = 'block';
+document.getElementById(soundOff).onclick = () => {
+    document.getElementById(soundOff).style.display = 'none';
+    document.getElementById(soundOn).style.display = 'block';
 };
-document.getElementById('sound-on').onclick = () => {
-    document.getElementById('sound-off').style.display = 'block';
-    document.getElementById('sound-on').style.display = 'none';
+document.getElementById(soundOn).onclick = () => {
+    document.getElementById(soundOff).style.display = 'block';
+    document.getElementById(soundOn).style.display = 'none';
 };

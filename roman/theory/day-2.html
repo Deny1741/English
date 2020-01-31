@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/word-list.css">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
 </head>
 
 
@@ -19,7 +23,7 @@
         <li class="nav-item width100"><a href="../practice.html" class="nav-link" >Практика</a></li>
     </ul>
 
-    <ul class="nav">
+    <ul class="nav" id="nav">
         <li class="nav-item"><a href="day-1.html" class="nav-link" >День 1</a></li>
         <li class="nav-item active"><a href="day-2.html" class="nav-link">День 2</a></li>
         <li class="nav-item not-ready"><a class="nav-link" >День 3</a></li>
@@ -49,7 +53,7 @@
 
 </body>
 <script type="module">
-    import { wordsRus2, wordsEng2 } from "../js/words/words-2.js";
+    import { wordsRus2, wordsEng2 } from "../js/words.js";
     import { createList } from "../js/list.js";
 
     createList(wordsRus2, wordsEng2);
