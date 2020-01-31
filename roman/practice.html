@@ -162,8 +162,7 @@
 </body>
 
 <script type="module">
-    import { wordsRus1, wordsEng1 } from "./js/words-1.js";
-    import { wordsRus2, wordsEng2 } from "./js/words/words-2.js";
+    import { wordsRus1, wordsEng1, wordsRus2, wordsEng2 } from "./js/words.js";
 
     let wordsRus = [];
     let wordsEng = [];
@@ -230,9 +229,11 @@
         let arrWordsRus = [wordsRus1, wordsRus2];
         let arrWordsEng = [wordsEng1, wordsEng2];
 
+        let $targetId = $(`#${e.target.id}`);
+
     //    console.log($(`#${arrDays[0]}`).prop('checked'));
     //  if (document.getElementById(e.target.id).checked === true) {
-        if ($(`#${e.target.id}`).prop('checked') === true) {
+        if ($targetId.prop('checked') === true) {
             for (let i = 0; i < arrDays.length; i++) {
                 if (e.target.id === arrDays[i]) {
                     wordsRus = [...wordsRus, ...arrWordsRus[i]];
@@ -241,7 +242,7 @@
             }
         }
 
-        if (document.getElementById(e.target.id).checked === false) {
+        if ($targetId.prop('checked') === false) {
             for (let i = 0; i < arrDays.length; i++) {
                 if (e.target.id === arrDays[i]) {
                     for (let j = 0; j < arrWordsRus[i].length; j++) {
