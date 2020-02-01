@@ -43,6 +43,7 @@
 
 .not-ready {
     background-color: #cccccc;
+    pointer-events: none;
 }
 
 .not-ready:hover {

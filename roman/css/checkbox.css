@@ -86,3 +86,8 @@
     border-radius: 50%;
 }
 
+.not-ready {
+    background: #cccccc;
+    pointer-events: none;
+}
+

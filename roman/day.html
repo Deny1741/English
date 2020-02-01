@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Теория</title>
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/word-list.css">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+<nav>
+    <ul class="nav" id="nav-practice"></ul>
+    <ul class="nav" id="nav"></ul>
+</nav>
+<h1 id="h1"></h1>
+
+<div class="wrap">
+    <div class="words">
+        <ul id="rus"></ul>
+        <ul id="eng"></ul>
+    </div>
+</div>
+</body>
+
+<script type="module">
+    import { wordsRus1, wordsEng1, wordsRus2, wordsEng2 } from "./js/words.js";
+    import { createList } from "./js/list.js";
+    import { voice } from "./js/voice.js";
+
+    window.onload = () => {
+        if (!location.href.includes('#')) {
+               createList(arrWordsRus[0], arrWordsEng[0]);
+               $('#h1').text('Занятие №1');
+               $('#day-1').parent().addClass('active');
+               loadWordsList('day-1');
+        }
+
+        arrDays.forEach((item, i) => {
+            if (location.href.includes(item)) {
+                $('#rus').html("");
+                $('#eng').html("");
+                createList(arrWordsRus[i], arrWordsEng[i]);
+                $('#h1').text(`Занятие №${i + 1}`);
+                $('.nav-item').removeClass('active');
+                $(`#${item}`).parent().addClass('active');
+            }
+        });
+
+        window.scrollBy(0, -90);
+    };
+
+    let arrWordsRus = [wordsRus1, wordsRus2];
+    let arrWordsEng = [wordsEng1, wordsEng2];
+    let dayCount = 7; // общее количество дней
+    let arrDays = [];
+
+    for (let i = 1; i <= dayCount; i++) {
+        arrDays.push(('day-' + i).toString());
+    }
+
+    let $nav = $('#nav');
+
+    $('#nav-practice').append('<li class="nav-item width100"><a href="./practice.html" class="nav-link" >Практика</a></li>');
+
+    for (let i = 1; i <= 7; i++) {
+        $nav.append(`<li class="nav-item" ><a class="nav-link" href="#day-${i}" id="day-${i}">День ${i}</a></li>`);
+        if (i > 2) $(`#day-${i}`).parent().addClass('not-ready'); // количество готовых занятий
+    }
+
+    $nav.append('  <li>\n' +
+        '            <img id="sound-off" height="30" src="./images/sound-off.png" alt="">\n' +
+        '            <img id="sound-on" style="display: none" height="30" src="./images/sound-on.png" alt="">\n' +
+        '        </li>');
+
+    $nav.click((e) => loadWordsList(e));
+
+    const loadWordsList = (e) => {
+        arrDays.forEach((item, i) => {
+            if (item === e.target.id) {
+                $('#rus').html("");
+                $('#eng').html("");
+                createList(arrWordsRus[i], arrWordsEng[i]);
+                $('#h1').text(`Занятие №${i + 1}`);
+                $('.nav-item').removeClass('active');
+                $(`#${item}`).parent().addClass('active');
+            }
+        });
+    };
+
+    $('#sound-off').click(() => {
+        $('#sound-off').hide();
+        $('#sound-on').show();
+    });
+
+    $('#sound-on').click(() => {
+        $('#sound-off').show();
+        $('#sound-on').hide();
+    });
+
+    $('a[href^="#"]').on('click', function() {
+        let href = $(this).attr('href');
+        $('html, body').animate({
+            scrollTop: $(href).offset().top - 90
+        });
+    });
+</script>
+</html>

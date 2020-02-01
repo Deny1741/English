@@ -13,7 +13,6 @@
             src="https://code.jquery.com/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"></script>
-
     <title>Практика</title>
 </head>
 
@@ -22,38 +21,7 @@
     <li class="nav-item width100 active"><a href="practice.html" class="nav-link" >Практика</a></li>
 </ul>
 
-<ul class="nav">
-    <li>
-        <div class="nav-item"><a href="./theory/day-1.html" class="nav-link" >День 1</a></div>
-        <div class="checkBox"><input class="option-input" type="checkbox" id="day1" value="1"/></div>
-    </li>
-
-    <li>
-        <div class="nav-item"><a href="./theory/day-2.html" class="nav-link" >День 2</a></div>
-        <div class="checkBox"><input class="option-input" type="checkbox" id="day2" value="2"/></div>
-    </li>
-
-    <li>
-        <div class="nav-item not-ready"><a class="nav-link" >День 3</a></div>
-    </li>
-
-    <li>
-        <div class="nav-item not-ready"><a class="nav-link" >День 4</a></div>
-    </li>
-
-    <li>
-        <div class="nav-item not-ready"><a class="nav-link" >День 5</a></div>
-    </li>
-
-    <li>
-        <div class="nav-item not-ready"><a class="nav-link" >День 6</a></div>
-    </li>
-
-    <li>
-        <div class="nav-item not-ready"><a class="nav-link" >День 7</a></div>
-    </li>
-
-</ul>
+<ul class="nav" id="nav"></ul>
 
 <div class="practice-wrap">
     <div id="rightCounter"></div>
@@ -62,8 +30,6 @@
     <button id="answer" class="button green">ответить</button>
     <button id="start" class="button">Загадать</button>
 </div>
-
-
 </body>
 
 <script type="module">
@@ -128,16 +94,16 @@
     $('#input').change(() => check());
     $('#answer').click(() => check());
 
-
     const useWords = (e) => {
-        let arrDays = ['day1', 'day2'];
+        let arrDays = [];
+        for (let i = 1; i <=7; i++) {
+            arrDays.push('day' + i)
+        }
         let arrWordsRus = [wordsRus1, wordsRus2];
         let arrWordsEng = [wordsEng1, wordsEng2];
 
         let $targetId = $(`#${e.target.id}`);
 
-    //    console.log($(`#${arrDays[0]}`).prop('checked'));
-    //  if (document.getElementById(e.target.id).checked === true) {
         if ($targetId.prop('checked') === true) {
             for (let i = 0; i < arrDays.length; i++) {
                 if (e.target.id === arrDays[i]) {
@@ -156,10 +122,7 @@
                     }
                 }
             }
-
         }
-
-     //   console.log(wordsEng);
 
         $('#rightCounter').text("Осталось: " + wordsRus.length);
         $('#input').prop('disabled', false);
@@ -167,8 +130,18 @@
         $('#start').prop('disabled', false);
     };
 
-    $('#day1').click((e) => useWords(e));
-    $('#day2').click((e) => useWords(e));
+    for (let i = 1; i <= 7; i++) {
+        $('#nav').append(` <li>
+        <div class="nav-item" id="day-${i}"><a href="day.html#day-${i}"   class="nav-link" >День ${i}</a></div>
+        <div class="checkBox"><input class="option-input" type="checkbox" id="day${i}" value="${i}"/></div>
+    </li>`);
+        let $dayCircle = $(`#${'day' + i}`);
+        $dayCircle.click((e) => useWords(e));
 
+        if (i > 2) {
+            $dayCircle.css('background', '#cccccc').css('pointer-events', 'none');
+            $(`#${'day-' + i}`).css('background', '#cccccc').css('pointer-events', 'none');
+        }
+    }
 </script>
 </html>
