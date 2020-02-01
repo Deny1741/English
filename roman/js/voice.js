@@ -1,6 +1,3 @@
-export let soundOff = 'sound-off';
-export let soundOn = 'sound-on';
-
 export const voice = (text) => {
     let speech = new SpeechSynthesisUtterance(text);
     speech.lang = 'en-En';
@@ -8,17 +5,19 @@ export const voice = (text) => {
 };
 
 $('#eng').click((e) => {
-    console.log(document.getElementById(e.target.id).innerText);
-    if (document.getElementById(soundOn).style.display === 'block') {
-        voice(document.getElementById(e.target.id).innerText);
+    let $targetId = $(`#${e.target.id}`);
+    console.log($targetId.text());
+    if ($('#sound-on').is(':visible')) {
+        voice($targetId.text());
     }
 });
 
-document.getElementById(soundOff).onclick = () => {
-    document.getElementById(soundOff).style.display = 'none';
-    document.getElementById(soundOn).style.display = 'block';
-};
-document.getElementById(soundOn).onclick = () => {
-    document.getElementById(soundOff).style.display = 'block';
-    document.getElementById(soundOn).style.display = 'none';
-};
+$('#sound-off').click(() => {
+    $('#sound-off').hide();
+    $('#sound-on').show();
+});
+
+$('#sound-on').click(() => {
+    $('#sound-off').show();
+    $('#sound-on').hide();
+});
