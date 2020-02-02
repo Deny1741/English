@@ -31,7 +31,7 @@
 </body>
 
 <script type="module">
-    import { wordsRus1, wordsEng1, wordsRus2, wordsEng2 } from "./js/words.js";
+    import { wordsRus1, wordsEng1, wordsRus2, wordsEng2, wordsRus3, wordsEng3 } from "./js/words.js";
     import { createList } from "./js/list.js";
     import { voice } from "./js/voice.js";
 
@@ -57,8 +57,8 @@
         window.scrollBy(0, -90);
     };
 
-    let arrWordsRus = [wordsRus1, wordsRus2];
-    let arrWordsEng = [wordsEng1, wordsEng2];
+    let arrWordsRus = [wordsRus1, wordsRus2, wordsRus3];
+    let arrWordsEng = [wordsEng1, wordsEng2, wordsEng3];
     let dayCount = 7; // общее количество дней
     let arrDays = [];
 
@@ -72,7 +72,7 @@
 
     for (let i = 1; i <= 7; i++) {
         $nav.append(`<li class="nav-item" ><a class="nav-link" href="#day-${i}" id="day-${i}">День ${i}</a></li>`);
-        if (i > 2) $(`#day-${i}`).parent().addClass('not-ready'); // количество готовых занятий
+        if (i > 3) $(`#day-${i}`).parent().addClass('not-ready'); // количество готовых занятий
     }
 
     $nav.append('  <li>\n' +

@@ -33,7 +33,7 @@
 </body>
 
 <script type="module">
-    import { wordsRus1, wordsEng1, wordsRus2, wordsEng2 } from "./js/words.js";
+    import { wordsRus1, wordsEng1, wordsRus2, wordsEng2, wordsRus3, wordsEng3 } from "./js/words.js";
 
     let wordsRus = [];
     let wordsEng = [];
@@ -45,9 +45,10 @@
         $('#word').text("Нажмите 'Загадать'");
         $('#day1').prop('checked', true);
         $('#day2').prop('checked', true);
+        $('#day3').prop('checked', true);
 
-        wordsRus = [...wordsRus, ...wordsRus1, ...wordsRus2];
-        wordsEng = [...wordsEng, ...wordsEng1, ...wordsEng2];
+        wordsRus = [...wordsRus, ...wordsRus1, ...wordsRus2, ...wordsRus3];
+        wordsEng = [...wordsEng, ...wordsEng1, ...wordsEng2, ...wordsEng3];
 
         $('#rightCounter').text("Осталось: " + wordsRus.length);
     };
@@ -101,8 +102,8 @@
         for (let i = 1; i <=7; i++) {
             arrDays.push('day' + i)
         }
-        let arrWordsRus = [wordsRus1, wordsRus2];
-        let arrWordsEng = [wordsEng1, wordsEng2];
+        let arrWordsRus = [wordsRus1, wordsRus2, wordsRus3];
+        let arrWordsEng = [wordsEng1, wordsEng2, wordsEng3];
 
         let $targetId = $(`#${e.target.id}`);
 
@@ -140,7 +141,7 @@
         let $dayCircle = $(`#${'day' + i}`);
         $dayCircle.click((e) => useWords(e));
 
-        if (i > 2) {
+        if (i > 3) {
             $dayCircle.css('background', '#cccccc').css('pointer-events', 'none');
             $(`#${'day-' + i}`).css('background', '#cccccc').css('pointer-events', 'none');
         }
