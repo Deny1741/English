@@ -5,6 +5,7 @@ export const createList = (listRus, listEng) => {
         $('#rus').append('<li>' + listRus[i] + '</li>');
         $('#eng').append('<li id="item">' + listEng[i] + '</li>');
         $('#item').prop('id', i.toString());
+    //    if (i % 10 === 2) $(`#${i.toString()}`).text('hello');
     }
 };
 
