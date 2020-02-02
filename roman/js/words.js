@@ -8,9 +8,9 @@
         'stone'];
 
  export let wordsRus2 = ['замок', 'треугольник', 'провод', 'парик', 'мыло', 'закат', 'созвездие', 'мел', 'кошелёк', 'грабитель',
-        'енот', 'корона', 'язык', 'коса из волос', 'забастовка', 'тренер', 'библиотека',
-        'борода', 'невеста', 'засуха'];
+        'енот', 'корона', 'язык', 'коса из волос', 'забастовка', 'тренер', 'библиотека', 'борода', 'невеста', 'засуха',
+     'признавать', 'преимущество', 'рекламировать', 'реклама', 'совет', 'советовать', 'позволять себе', 'повестка дня', 'извинение', 'одобрять' ];
 
  export let wordsEng2 = ['castle', 'triangle', 'wire', 'wig', 'soap', 'sunset', 'constellation', 'chalk', 'purse', 'robber',
-    'raccoon', 'crown', 'tongue', 'plait', 'strike', 'coach', 'library',
-    'beard', 'fiancee', 'drought'];
+    'raccoon', 'crown', 'tongue', 'plait', 'strike', 'coach', 'library', 'beard', 'fiancee', 'drought',
+     'admit', 'advantage', 'advertise', 'advertisement', 'advice', 'advise', 'afford', 'agenda', 'apology', 'approve'];
