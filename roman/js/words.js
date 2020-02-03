@@ -19,12 +19,16 @@
 
  export let wordsRus3 = ['сравнение', 'конкуренция', 'конкурент', 'жаловаться', 'подтверждать', 'подтверждение', 'обдумывать', 'потребление', 'убеждать', 'расходы',
      'считать', 'валюта', 'покупатель', 'долг', 'должник', 'решать', 'решение', 'понижать', 'требование', 'отдел',
-     'описание', 'развивать', 'разница', 'недостаток', 'распускать', 'отсылать', 'распространять', 'распространение', 'улучшать', 'делить',
-     'нанимать', 'работник', 'работодатель', 'поощрять', 'запрос', 'оборудование', 'устанавливать', 'оценивать', 'обмен', 'объяснение',
-     'продлевать', 'материальная база', 'фабрика', 'исправлять', 'фонд', 'цель', 'товар', 'с учётом ндс', 'рост', 'гарантия'];
+     'описание', 'развивать', 'разница', 'недостаток', 'распускать', 'отсылать', 'распространять', 'распространение', 'улучшать', 'делить'];
+
+  //   'нанимать', 'работник', 'работодатель', 'поощрять', 'запрос', 'оборудование', 'устанавливать', 'оценивать', 'обмен', 'объяснение',
+    // 'продлевать', 'материальная база', 'фабрика', 'исправлять', 'фонд', 'цель', 'товар', 'с учётом ндс', 'рост', 'гарантия'];
 
  export let wordsEng3 = ['comparison', 'competition', 'competitor', 'complain', 'confirm', 'confirmation', 'consider', 'consumption', 'convince', 'costs',
      'count', 'currency', 'customer', 'debt', 'debtor', 'decide', 'decision', 'decrease', 'demand', 'department',
-     'description', 'develop', 'difference', 'disadvantage', 'dismiss', 'dispatch', 'distribute', 'distribution', 'improve', ' divide',
-     'employ', 'employee', 'employer', 'encourage', 'enquiry', 'equipment', 'establish', 'estimate', 'exchange', 'explanation',
-     'extend', 'facilities', 'factory', 'fix', 'fund', 'goal', 'good', 'gross', 'growth', 'guarantee'];
+     'description', 'develop', 'difference', 'disadvantage', 'dismiss', 'dispatch', 'distribute', 'distribution', 'improve', ' divide']
+
+    /* 'employ', 'employee', 'employer', 'encourage', 'enquiry', 'equipment', 'establish', 'estimate', 'exchange', 'explanation',
+     'extend', 'facilities', 'factory', 'fix', 'fund', 'goal', 'good', 'gross', 'growth', 'guarantee']
+
+     */
