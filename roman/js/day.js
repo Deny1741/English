@@ -39,7 +39,7 @@ $('#nav-practice').append('<li class="nav-item width100"><a href="./practice.htm
 
 for (let i = 1; i <= 7; i++) {
     $nav.append(`<li class="nav-item" ><a class="nav-link" href="#day-${i}" id="day-${i}">День ${i}</a></li>`);
-    if (i > 3) $(`#day-${i}`).parent().addClass('not-ready'); // количество готовых занятий
+    if (i > 4) $(`#day-${i}`).parent().addClass('not-ready'); // количество готовых занятий
 }
 
 $nav.append('  <li>\n' +
