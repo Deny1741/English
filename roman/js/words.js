@@ -21,14 +21,16 @@
      'считать', 'валюта', 'покупатель', 'долг', 'должник', 'решать', 'решение', 'понижать', 'требование', 'отдел',
      'описание', 'развивать', 'разница', 'недостаток', 'распускать', 'отсылать', 'распространять', 'распространение', 'улучшать', 'делить'];
 
-  //   'нанимать', 'работник', 'работодатель', 'поощрять', 'запрос', 'оборудование', 'устанавливать', 'оценивать', 'обмен', 'объяснение',
-    // 'продлевать', 'материальная база', 'фабрика', 'исправлять', 'фонд', 'цель', 'товар', 'с учётом ндс', 'рост', 'гарантия'];
-
  export let wordsEng3 = ['comparison', 'competition', 'competitor', 'complain', 'confirm', 'confirmation', 'consider', 'consumption', 'convince', 'costs',
      'count', 'currency', 'customer', 'debt', 'debtor', 'decide', 'decision', 'decrease', 'demand', 'department',
      'description', 'develop', 'difference', 'disadvantage', 'dismiss', 'dispatch', 'distribute', 'distribution', 'improve', 'divide'];
 
-    /* 'employ', 'employee', 'employer', 'encourage', 'enquiry', 'equipment', 'establish', 'estimate', 'exchange', 'explanation',
-     'extend', 'facilities', 'factory', 'fix', 'fund', 'goal', 'good', 'gross', 'growth', 'guarantee']
 
-     */
+
+ export let wordsRus4 = ['нанимать', 'работник', 'работодатель', 'поощрять', 'запрос', 'оборудование', 'устанавливать', 'оценивать', 'обмен', 'объяснение',
+     'продлевать', 'материальная база', 'фабрика', 'исправлять', 'фонд', 'цель', 'товар', 'с учётом ндс', 'рост', 'гарантия',
+     'поощрение', 'налог на прибыль', 'повышать' , 'индустрия', 'инфляция', 'информировать', 'банковский процент', 'знания', 'лидерство', 'давать в долг'  ];
+
+ export let wordsEng4 = ['employ', 'employee', 'employer', 'encourage', 'enquiry', 'equipment', 'establish', 'estimate', 'exchange', 'explanation',
+     'extend', 'facilities', 'factory', 'fix', 'fund', 'goal', 'good', 'gross', 'growth', 'guarantee',
+     'incentive', 'income tax', 'increase', 'industry', 'inflation', 'inform', 'interest', 'knowledge', 'leadership', 'lend'];
