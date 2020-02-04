@@ -22,8 +22,8 @@
      'описание', 'развивать', 'разница', 'недостаток', 'распускать', 'отсылать', 'распространять', 'распространение', 'улучшать', 'делить'];
 
  export let wordsEng3 = ['comparison', 'competition', 'competitor', 'complain', 'confirm', 'confirmation', 'consider', 'consumption', 'convince', 'costs',
-     'count', 'currency', 'customer', 'debt', 'debtor', 'decide', 'decision', 'decrease', 'demand', 'department'];
-     //'description', 'develop', 'difference', 'disadvantage', 'dismiss', 'dispatch', 'distribute', 'distribution', 'improve', 'divide'];
+     'count', 'currency', 'customer', 'debt', 'debtor', 'decide', 'decision', 'decrease', 'demand', 'department',
+     'description', 'develop', 'difference', 'disadvantage', 'dismiss', 'dispatch', 'distribute', 'distribution', 'improve', 'divide'];
 
 
 

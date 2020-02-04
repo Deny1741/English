@@ -26,7 +26,10 @@ const start = () => {
 
     $('#word').text(wordsRus[wordIndex]);
 
-    console.log(wordsEng[wordIndex]);
+  //  console.log(wordsEng[wordIndex]);
+    console.log('ENG: ' + wordsEng.length);
+    console.log('RUS: ' + wordsRus.length);
+
 };
 
 const check = () => {
