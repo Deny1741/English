@@ -32,6 +32,36 @@ const start = () => {
 
 };
 
+const know = () => {
+    let $input = $('#input');
+
+    $('#word').text("ВЕРНО!");
+    $input.val("");
+    counter++;
+
+    //  $input.blur();
+
+    wordsRus.splice(wordIndex, 1);
+    wordsEng.splice(wordIndex, 1);
+
+    $('#rightCounter').text("Осталось: " + wordsRus.length);
+    console.log(wordsRus.length);
+    if (wordsRus.length !== 0) setTimeout(start, 1000);
+
+    if (wordsRus.length === 0) {
+        $('#word').text('ПОЗДРАВЛЯЕМ!!');
+        $input.prop('disabled', true);
+        $('#answer').prop('disabled', true);
+        $('#start').prop('disabled', true);
+
+        $('#day1').prop('checked', false);
+        $('#day2').prop('checked', false);
+        //    $('#day3').prop('checked', false);
+        //   $('#day4').prop('checked', false);
+    }
+    $input.focus();
+};
+
 const check = () => {
     let $input = $('#input');
 
@@ -67,6 +97,7 @@ const check = () => {
 $('#start').click(() => start());
 $('#input').change(() => check());
 $('#answer').click(() => check());
+$('#know').click(() => know());
 
 const useWords = (e) => {
     let arrDays = [];
